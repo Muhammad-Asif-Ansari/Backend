@@ -1,41 +1,9 @@
-import express from "express"
-import  User  from "../models/user/index.js"
-import { CreateUser } from "../controllers/index.js"
+import User  from "../models/user/index.js";
 
-const user = express.Router()
-
-const users = [
-    {
-        id: 1,
-        name: "Jhon",
-        email: 'jhon@gmail.com'
-    },
-    {
-        id: 2,
-        name: "Smith",
-        email: 'smith@gmail.com'
-    },
-    {
-        id: 3,
-        name: "Clerk",
-        email: 'clerk@gmail.com'
-    },
-]
-
-
-user.get('/', (req, res) => {
-    res.status(200).send(users)
-})
-
-
-user.post("/create-user", CreateUser)
-// user.put("/update-user", UpdateUser)
-
-
-user.post("/create-user", async (req, res) => {
+export const CreateUser = async (req, res) => {
     const { username, email, password, phone } = req.body;
     // console.log("req-->", req.body);
-    
+
 
     try {
         if (!(username && email && password && phone)) {
@@ -61,9 +29,4 @@ user.post("/create-user", async (req, res) => {
         return res.status(500).send({ status: 500, message: error.message })
 
     }
-})
-
-
-
-
-export default user;
+}

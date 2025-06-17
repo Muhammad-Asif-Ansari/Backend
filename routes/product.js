@@ -3,7 +3,7 @@ import users from '../contant.js';
 
 const product = express.Router()
 product.use("/",(req,res)=>{
-    res.send(users)
+    res.status(200).send(users)
 })
 
 export default product;
