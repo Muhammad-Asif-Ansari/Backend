@@ -2,6 +2,8 @@ import express from "express"
 import routerHandle from "./routes/index.js";
 import mongoose from "./db/index.js";
 import cors from "cors";
+import chalk from "chalk";
+import 'dotenv/config'
 const PORT = process.env.PORT || 8000
 const app = express();
 app.use(express.json());

@@ -1,5 +1,5 @@
 import express from "express"
-import  User  from "../models/user/index.js"
+import  {User}  from "../models/user/index.js"
 import { CreateUser } from "../controllers/index.js"
 
 const user = express.Router()

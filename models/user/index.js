@@ -1,21 +1,3 @@
-// import mongoose from "mongoose";
-
-// const userSchema = new mongoose.Schema({
-//     username:{
-//         type : mongoose.Schema.Types.String,
-//     },
-//     email:{
-//          type : mongoose.Schema.Types.String,
-//     },
-//     password:{
-//          type : mongoose.Schema.Types.String,
-//     }
-// })
-
-// const User = mongoose.model('user',userSchema)
-
-// export default User;
-
 import mongoose, { Schema } from "mongoose";
 
 
@@ -37,8 +19,12 @@ const UserSchema = new Schema({
         type: Schema.Types.Number,
         required: true
     },
-})
+},{
+  timestamps: {
+    createdAt: 'created_at', // Use `created_at` to store the created date
+    updatedAt: 'updated_at' // and `updated_at` to store the last updated date
+  }})
 
-const User = mongoose.model("User", UserSchema)
 
-export default User;
+export const User = mongoose.model("User", UserSchema)
+
