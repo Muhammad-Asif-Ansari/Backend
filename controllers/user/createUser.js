@@ -1,6 +1,6 @@
 import { User } from "../../models/user/index.js";
 import bcrypt from "bcrypt"
-
+import jwt from "jsonwebtoken"
 import joi from "joi";
 import transporter from "../../helpers/index.js";
 
@@ -48,7 +48,9 @@ If you have any questions, feel free to reach out to me.
 Best regards,
 Muhammad Asif Ansari`
         });
+ const token = jwt.sign({ _id: createUser._id, email: createUser.email }, process.env.JWT_SECRET_KEY, { expiresIn: "1d" })
 
+        delete createUser.password
         return res.status(200).send({ status: 200, message: "User Created Successfully!", data: createUser })
     } catch (error) {
         return res.status(500).send({ status: 500, message: error.message })
