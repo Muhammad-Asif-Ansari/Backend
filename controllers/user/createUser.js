@@ -35,7 +35,7 @@ export const CreateUser = async (req, res) => {
             email: email,
             phone: phone,
             password: passwordHash
-        })
+        }).then(res => res.toObject())
         // const createUser = await User.create(req.body)
         await transporter.sendMail({
             from: '"Muhammad Asif Ansari" <muhammadasifansari101@gmail.com>',
@@ -51,7 +51,7 @@ Muhammad Asif Ansari`
  const token = jwt.sign({ _id: createUser._id, email: createUser.email }, process.env.JWT_SECRET_KEY, { expiresIn: "1d" })
 
         delete createUser.password
-        return res.status(200).send({ status: 200, message: "User Created Successfully!", data: createUser })
+        return res.status(200).send({ status: 200, message: "User Created Successfully!", data: createUser,token: token  })
     } catch (error) {
         return res.status(500).send({ status: 500, message: error.message })
 

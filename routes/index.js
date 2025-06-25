@@ -3,7 +3,7 @@ import user from "./user.js";
 import product from "./product.js";
 import profile from "./profiles.js";
 import post from "./post.js";
-import { CreateUser,deleteAllUsers,deleteUser,getUser,loginUser,getAllUsers,getByUsername,updateUser,updateAllUsers } from "../controllers/index.js";
+import { CreateUser,deleteAllUsers,deleteUser,getUser,loginUser,getAllUsers,getByUsername,updateUser,updateAllUsers, CreateProduct, newAddress } from "../controllers/index.js";
 const routerHandle = express.Router()
 
 routerHandle.use("/user",user)
@@ -19,4 +19,6 @@ routerHandle.get("/getAllUsers",getAllUsers)
 routerHandle.get("/getusername",getByUsername)
 routerHandle.put("/updateuser",updateUser)
 routerHandle.put("/updateallusers",updateAllUsers)
+routerHandle.post("/products",CreateProduct)
+routerHandle.post("/address",newAddress)
 export default routerHandle;

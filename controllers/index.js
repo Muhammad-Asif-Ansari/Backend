@@ -7,6 +7,8 @@ import { getAllUsers } from "./user/getAllUsers.js";
 import {getByUsername} from "./user/getUserByUsername.js"
 import { updateUser } from "./user/updateUser.js";
 import { updateAllUsers } from "./user/updateAllUsers.js";
+import { CreateProduct } from "./products/createProduct.js";
+import { newAddress } from "./address/address.js";
 export{
     CreateUser,
     loginUser,
@@ -16,5 +18,7 @@ export{
     getAllUsers,
     getByUsername,
     updateUser,
-    updateAllUsers
+    updateAllUsers,
+    CreateProduct,
+    newAddress
 }
